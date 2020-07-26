@@ -1,7 +1,10 @@
 # Git ultimate cloner
 
-Are you tried of clone repo, opening in vs-code and installing packages... No more use hit and make your life simple
-This package clone the repo, installs packages required from package.json and instantly opens vscode for you
+Are you tried of cloning repo, opening in vs-code and installing packages...
+<br>
+No more use lit cmd and make your life simpler
+<br>
+This package clones the repo, installs packages required from package.json and instantly opens vscode for you
 
 ## Usage
 

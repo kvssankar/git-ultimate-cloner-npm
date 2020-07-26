@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-let shell = require("shelljs");
-let colors = require("colors");
+const shell = require("shelljs");
+const colors = require("colors");
 
 let url = process.argv[2];
 

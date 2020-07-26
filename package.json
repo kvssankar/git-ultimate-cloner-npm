@@ -1,7 +1,7 @@
 {
   "name": "git-ultimate-cloner",
-  "version": "1.0.1",
-  "description": "Are you tried of clone repo, opening in vs-code and installing packages... No more use hit and make your life simple",
+  "version": "1.0.3",
+  "description": "Are you tried of clone repo, opening in vs-code and installing packages... No more use git-ultimate-cloner and make your life simple",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -26,7 +26,7 @@
     "lit": "index.js"
   },
   "homepage": "https://github.com/kvssankar/hit-npm#readme",
-  "devDependencies": {
+  "dependencies": {
     "colors": "^1.4.0",
     "shelljs": "^0.8.4"
   }
