@@ -1,9 +1,5 @@
 # Git ultimate cloner
 
-<iframe
-    src="http://jmervine.github.io/npm-downloads-badge/badge.html?module=git-ultimate-cloner"
-    allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20">
-</iframe>
 
 Are you tried of cloning repo, opening it in vs-code and installing packages, just to check an error in your friend's code ????
 <br>
