@@ -11,9 +11,17 @@ This package clones the repo, installs packages required from package.json and i
 2. Install all the npm packages
 3. Open your repo in vs code
 
-# Usage
+# Use this 😎😎😎
 
     lit https://github.com/user/reponame
+    
+## Or this 🥵🥵🥵
+    
+    git clone <repo-url>
+    cd repo-name
+    code .
+    ----open terminal in vs code----
+    npm install
 
 ## Prerequsites
 
