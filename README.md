@@ -13,7 +13,7 @@ This package clones the repo, installs packages required from package.json and i
 
 # Use this 😎😎😎
 
-    lit https://github.com/user/reponame
+    lit <repo-url>
     
 ## Or this 🥵🥵🥵
     
