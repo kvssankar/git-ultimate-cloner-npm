@@ -5,8 +5,8 @@ var Spinner = require("cli-spinner").Spinner;
 var depSpin = new Spinner("%s");
 depSpin.setSpinnerString("|/-\\");
 
-let url = process.argv[2];
-let foldername = process.argv[3];
+let url = process.argv[3];
+let foldername = process.argv[4];
 let app;
 
 
@@ -39,7 +39,8 @@ const run = async () => {
 const check = () => {
   return new Promise((resolve) => {
     if (!url.includes("https://github.com/")) {
-      shell.echo("\nEnter a valid github url\n".red);
+      shell.echo("\nError: Enter a valid github url\n".red);
+      shell.exit(1);
     }
     if (!shell.which("git")) {
       shell.echo(
