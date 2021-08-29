@@ -13,11 +13,11 @@ This package clones the repository installs packages required from package.json 
 
 # Use this 😎😎😎
 
-    lit <repo-url>
+    quick <repo-url>
     
 or 
     
-    lit <repo-url> [-c{custom folder name}] [-e{editor name}]
+    quick <repo-url> [-c{custom folder name}] [-e{editor name}]
     
 ## Or this 🥵🥵🥵
     
@@ -35,20 +35,20 @@ As editor name :
 
 1. Use **c** for Visual Studio Code
     ```sh
-    lit <repo-url> -ec
+    quick <repo-url> -ec
     ```
 2. Use **a** for Atom
     ```sh
-    lit <repo-url> -ea
+    quick <repo-url> -ea
     ```
 
 ### For cloning into a custom named folder :
 ```sh
-lit <repo-url> [-c{custom folder name}]
+quick <repo-url> [-c{custom folder name}]
 ```
 Example :
 ```sh
-lit https://github.com/Tanmay000009/git-ultimate-cloner/ -cCustom-Named-Folder
+quick https://github.com/Tanmay000009/git-ultimate-cloner/ -cCustom-Named-Folder
 ```
 The package will clone the repository into a folder named "Custom-Named-Folder". And will by default open the code in Visual Studio Code, as no parameter has been passed with `-e`.
 
