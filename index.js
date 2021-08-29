@@ -7,22 +7,26 @@ depSpin.setSpinnerString("|/-\\");
 
 let url = process.argv[2];
 
-let names = [];
+let app;
 
-function reverseString(str) {
-  return str.reverse().join("");
-}
+
+
+  temp_str = url.replace("https://github.com/","");
+  let t1,t2;
+  for (let i=0;i<temp_str.length;i++) {
+      if (temp_str[i]=="/") {
+          t1=i+1;
+          break;
+      }
+  }
+  temp_str = temp_str.slice(t1);
+  temp_str.replace("/","");
+  app = temp_str;
 
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-for (let i = url.length - 5; i > 0; i--) {
-  if (url[i] === "/") break;
-  names.push(url[i]);
-}
-
-let app = reverseString(names);
 
 const run = async () => {
   await check();
@@ -34,6 +38,9 @@ const run = async () => {
 
 const check = () => {
   return new Promise((resolve) => {
+    if (!url.includes("https://github.com/")) {
+      shell.echo("\nEnter a valid github url\n".red);
+    }
     if (!shell.which("git")) {
       shell.echo(
         "\nSorry, this script requires git installed globally :(\n".red
