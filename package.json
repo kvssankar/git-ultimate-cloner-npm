@@ -1,6 +1,6 @@
 {
   "name": "git-ultimate-cloner",
-  "version": "1.1.4",
+  "version": "1.2.0",
   "description": "Are you tried of cloning repo, opening in vs-code and installing packages... No more use git-ultimate-cloner and make your life simple",
   "main": "index.js",
   "scripts": {
