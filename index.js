@@ -5,8 +5,8 @@ var Spinner = require("cli-spinner").Spinner;
 var depSpin = new Spinner("%s");
 depSpin.setSpinnerString("|/-\\");
 
-let url = process.argv[2];
-let foldername = process.argv[3];
+let url = process.argv[3];
+let foldername = process.argv[4];
 let app;
 
 
