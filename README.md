@@ -3,7 +3,7 @@
 
 Are you tried of cloning repository, opening it in ide and installing packages, just for reviewing code????
 <br>
-No more use,  `quick <git-repo-url>` and make your life easier.
+No more use,  `quick clone <git-repo-url>` and make your life easier.
 <br>
 This package clones the repositry, installs npm packages required from package.json and instantly opens the code in your favorite ide.
 
@@ -16,7 +16,7 @@ This package clones the repositry, installs npm packages required from package.j
 Currently supported ides : [Atom](https://atom.io/) , [Visual Studio Code](https://code.visualstudio.com/download) 
 # Use this 😎😎😎
 
-    lit <repository-url> [-e {editor name}]
+    quick clone <repository-url> [-e {editor name}]
     
    Note:
    > For Visual Studio Code, use c. For Atom, use a.
