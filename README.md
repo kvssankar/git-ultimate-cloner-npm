@@ -1,4 +1,3 @@
-
 # Git ultimate cloner
 
 
@@ -44,6 +43,6 @@ Currently supported ides : [Atom](https://atom.io/) , [Visual Studio Code](https
 
 ## Prerequsites
 
-1.  node installed
-2.  vs code installed
-3.  git installed globally
+1.  [NodeJS](https://nodejs.org/en/) installed.
+2.  [Atom](https://atom.io/) or [Visual Studio Code](https://code.visualstudio.com/download) installed.
+3.  [git](https://git-scm.com/) installed globally.
