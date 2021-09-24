@@ -16,6 +16,16 @@ const help = () => {
   shell.echo("-e vscode : for opening in vscode editor");
 };
 
+const syntaxError = () => {
+  console.log("Not a valid command. Please follow proper syntax\n".red);
+  console.log(
+    "Syntax : lit clone <url> [-e{editor name}] [-c{custom folder name}]\n"
+      .yellow
+  );
+  console.log("Supported editors : Visual Studio Code, Atom".yellow);
+  console.log("For Visual Studio Code, use code. For Atom, use atom\n".yellow);
+};
+
 if (process.argv[2] == "--help") {
   help();
   shell.exit(200);
@@ -34,13 +44,7 @@ const optionsExc = () => {
 };
 
 if (process.argv[2] != "clone") {
-  console.log("Not a valid command. Please follow proper syntax\n".red);
-  console.log(
-    "Syntax : lit clone <url> [-e{editor name}] [-c{custom folder name}]\n"
-      .yellow
-  );
-  console.log("Supported editors : Visual Studio Code, Atom".yellow);
-  console.log("For Visual Studio Code, use code. For Atom, use atom\n".yellow);
+  syntaxError();
   shell.exit(1);
 }
 
@@ -54,8 +58,6 @@ for (let i = 0; i < temp_str.length; i++) {
 }
 temp_str = temp_str.slice(t1);
 temp_str.replace("/", "");
-temp_str = temp_str.slice(0, -4);
-shell.echo(temp_str);
 
 // getting github repo name
 
