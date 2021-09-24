@@ -36,7 +36,7 @@ let options = process.argv.slice(4);
 
 const optionsExc = () => {
   for (var i = 0; i < options.length; i++) {
-    if (options[i] == "-e" && options[i + 1] == "atom") {
+    if (options[i] == "-e" && options[i + 1] == "a") {
       idename = options[i + 1];
       i++;
     }
@@ -127,8 +127,8 @@ const cd = () => {
 
 const open = () => {
   return new Promise((resolve) => {
-    console.log("\nYou are all ready to go forth and conquer\n".trap);
     checkIde(idename);
+    console.log("\nYou are all ready to go forth and conquer\n".green);
     shell.exec(`${idename} .`, () => {
       resolve();
     });
