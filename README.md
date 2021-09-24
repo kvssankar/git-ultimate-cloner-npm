@@ -37,7 +37,10 @@ Currently supported ides : [Atom](https://atom.io/) , [Visual Studio Code](https
    ```sh
    quick clone https://github.com/Tanmay000009/git-ultimate-cloner
    ```
-
+2. For Atom :
+   ```sh
+   quick clone https://github.com/Tanmay000009/git-ultimate-cloner -e a
+   ```
 
 ## Prerequsites
 
