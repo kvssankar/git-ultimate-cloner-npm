@@ -19,7 +19,10 @@ Currently supported ides : [Atom](https://atom.io/) , [Visual Studio Code](https
 
     lit <repository-url> [-e {editor name}]
     
-   For Visual Studio Code, use c. For Atom, use a.
+   Note:
+   > For Visual Studio Code, use c. For Atom, use a.
+   
+   > Opens in Visual Studio Code by defualt
     
 ## Or this 🥵🥵🥵
     
@@ -28,6 +31,13 @@ Currently supported ides : [Atom](https://atom.io/) , [Visual Studio Code](https
     code .
     ----open terminal in vs code----
     npm install
+
+## Examples
+1. For Visual Studio Code (defualt) :
+   ```sh
+   quick clone https://github.com/Tanmay000009/git-ultimate-cloner
+   ```
+
 
 ## Prerequsites
 
