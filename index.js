@@ -19,7 +19,7 @@ const help = () => {
 const syntaxError = () => {
   console.log("Not a valid command. Please follow proper syntax\n".red);
   console.log(
-    "Syntax : lit clone <url> [-e {editor name}]\n"
+    "Syntax : quick clone <url> [-e {editor name}]\n"
       .yellow
   );
   console.log("Supported editors : Visual Studio Code, Atom".yellow);
