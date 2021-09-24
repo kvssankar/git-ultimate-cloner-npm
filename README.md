@@ -2,9 +2,9 @@
 # Git ultimate cloner
 
 
-Are you tried of cloning repo, opening it in vs-code and installing packages, just to check an error in your friend's code ????
+Are you tried of cloning repository, opening it in ide and installing packages, just for reviewing code????
 <br>
-No more use lit <git-repo-url> and make your life easier
+No more use,  `quick <git-repo-url>` and make your life easier.
 <br>
 This package clones the repo, installs packages required from package.json and instantly opens vscode for you
 
