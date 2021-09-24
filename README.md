@@ -13,7 +13,7 @@ This package clones the repo, installs packages required from package.json and i
 2. Installs all the npm packages
 3. Opens your repo in vs code
 
-![Demo](https://res.cloudinary.com/sankarkvs/image/upload/v1620725916/images/gunvvv_isldke.png)
+![Demo](https://user-images.githubusercontent.com/70322519/134666741-7c2f2d97-dc34-4296-9e30-2f3ad4aa891e.jpeg)
 
 # Use this 😎😎😎
 
