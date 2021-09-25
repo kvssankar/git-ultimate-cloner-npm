@@ -4,7 +4,6 @@ const colors = require("colors");
 var Spinner = require("cli-spinner").Spinner;
 var depSpin = new Spinner("%s");
 depSpin.setSpinnerString("|/-\\");
-const fs = require("fs");
 
 let idename = "code";
 
