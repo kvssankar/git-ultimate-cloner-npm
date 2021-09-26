@@ -46,6 +46,10 @@ if (process.argv[2] != "clone") {
   syntaxError();
   shell.exit(1);
 }
+let url_length = url.length
+if (url.slice(url_length-4,url_length) == ".git") {
+  url = url.slice(0,url_length-4);
+}
 
 temp_str = url.replace("https://github.com/", "");
 let t1;
