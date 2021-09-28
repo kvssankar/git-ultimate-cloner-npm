@@ -81,3 +81,15 @@ Currently supported ides : [Atom](https://atom.io/) , [Visual Studio Code](https
 		</td>
     </tr>
 </table>
+
+---------
+
+```javascript
+
+if (youLikedOurPackage) {
+    starThisRepository();
+}
+
+```
+
+-----------
