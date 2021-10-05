@@ -14,6 +14,12 @@ This package clones the repositry, installs npm packages required from package.j
 
 ![Demo](https://user-images.githubusercontent.com/70322519/134666741-7c2f2d97-dc34-4296-9e30-2f3ad4aa891e.jpeg)
 Currently supported ides : [Atom](https://atom.io/) , [Visual Studio Code](https://code.visualstudio.com/download) 
+
+# How to install?
+
+    npm i -g git-ultimate-cloner
+
+
 # Use this 😎😎😎
 
     quick clone <repository-url> [-e {editor name}]
