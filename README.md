@@ -46,3 +46,50 @@ Currently supported ides : [Atom](https://atom.io/) , [Visual Studio Code](https
 1.  [NodeJS](https://nodejs.org/en/) installed.
 2.  [Atom](https://atom.io/) or [Visual Studio Code](https://code.visualstudio.com/download) installed.
 3.  [git](https://git-scm.com/) installed globally.
+
+## Contributors
+
+<table>
+	<tr align="center">
+		<td>
+		Kvs Sankar Kumar
+		<p align="center">
+			<img src = "https://user-images.githubusercontent.com/70322519/135128594-9d853a7c-c501-4c8d-9943-ac984569ae7f.png" width="150" height="150" alt="Kvs Sankar Kumar">
+		</p>
+			<p align="center">
+				<a href = "https://github.com/kvssankar">
+					<img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36" alt="GitHub"/>
+				</a>
+				<a href = "https://www.linkedin.com/in/sankarkvs/">
+					<img src = "http://www.iconninja.com/files/863/607/751/network-linkedin-social-connection-circular-circle-media-icon.svg" width="36" height="36" alt="LinkedIn"/>
+				</a>
+			</p>
+		</td>
+        <td>
+		Tanmay Vyas
+		<p align="center">
+			<img src = "https://user-images.githubusercontent.com/70322519/135129327-554cead3-1245-4024-95e8-7d704341ab63.png" width="150" height="150" alt="Tanmay Vyas">
+		</p>
+			<p align="center">
+				<a href = "https://github.com/Tanmay000009">
+					<img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36" alt="GitHub"/>
+				</a>
+				<a href = "https://www.linkedin.com/in/tanmay-vyas-09/">
+					<img src = "http://www.iconninja.com/files/863/607/751/network-linkedin-social-connection-circular-circle-media-icon.svg" width="36" height="36" alt="LinkedIn"/>
+				</a>
+			</p>
+		</td>
+    </tr>
+</table>
+
+---------
+
+```javascript
+
+if (youLikedOurPackage) {
+    starThisRepository();
+}
+
+```
+
+-----------
