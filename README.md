@@ -10,7 +10,7 @@
     git clone <repo-url>
     cd repository-name
     code .
-    ----open terminal in vs code----
+    open terminal in vs code
     npm install
 
 # What does it do?
