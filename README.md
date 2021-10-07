@@ -1,16 +1,14 @@
 # Git ultimate cloner
 
-
-Are you tried of cloning repository, opening it in ide and installing packages, just for reviewing code????
-<br>
-No more use,  `quick clone <git-repo-url>` and make your life easier.
-<br>
-This package clones the repositry, installs npm packages required from package.json and instantly opens the code in your favorite ide.
+.json and instantly opens the code in your favorite ide.
 
 # What does it do?
 1. Clones your repo
 2. Installs all the npm packages
 3. Opens your repositoy in your favorite ide
+
+All in a single step 🤩🤩🤩
+
 4. Set your default path so where ever you open your command prompt it will clone into the path you set
  
 ## Check the image for more details
