@@ -1,7 +1,5 @@
 # Git ultimate cloner
 
-.json and instantly opens the code in your favorite ide.
-
 # What does it do?
 1. Clones your repo
 2. Installs all the npm packages
