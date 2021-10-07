@@ -7,12 +7,21 @@ depSpin.setSpinnerString("|/-\\");
 
 let idename = "code";
 
+const store = require("data-store")({ path: process.cwd() + "/guc.json" });
+
 const help = () => {
-  shell.echo("\nFirst cd into the folder you want to clone\n");
-  shell.echo("\nUsage: quick clone <repo-link> <options>\n");
+  shell.echo("\nUsage: ".magenta + "quick clone <repo-link> <options>\n".blue);
   shell.echo("where options is one of the below\n");
-  shell.echo("-e atom   : for opening in atom editor");
-  shell.echo("-e vscode : for opening in vscode editor");
+  shell.echo("-e".yellow + " atom   : for opening in atom editor");
+  shell.echo("-e".yellow + " vscode : for opening in vscode editor");
+  shell.echo("\n\nSet your default cloning folder:\n".white.bgCyan);
+  shell.echo(
+    "quick --default <path>\n".blue +
+      "Example: ".magenta +
+      "quick " +
+      "--default".yellow +
+      " C:\\Users\\SANKAR KUMAR\\Desktop\\projects"
+  );
 };
 
 const syntaxError = () => {
