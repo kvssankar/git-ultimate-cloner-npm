@@ -51,7 +51,8 @@ Note:
    ```sh
    quick clone https://github.com/Tanmay000009/git-ultimate-cloner -e atom
    ```
-   
+Note:   
+
    > For more info run
    quick --help
 
