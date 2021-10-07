@@ -7,9 +7,11 @@
 2. Installs all the npm packages
 3. Opens your repositoy in your favorite ide
 
-All in a single step 🤩🤩🤩
+   All in a single step 🤩🤩🤩
 
-4. Set your default path so where ever you open your command prompt it will clone into the path you set
+4. Set your default path so wherever you open your command prompt it will clone into the path you set
+   
+   Example: Your projects folder
  
 ## Check the image for more details
 
