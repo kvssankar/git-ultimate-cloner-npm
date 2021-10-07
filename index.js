@@ -13,8 +13,8 @@ const help = () => {
   shell.echo("\n\nGIT-ULTIMATE-CLONER GUIDELINES".white.bgMagenta);
   shell.echo("\nquick clone <repo-link> <options>\n".blue);
   shell.echo("where options is one of the below\n");
-  shell.echo("-e".yellow + " atom   : for opening in atom editor");
-  shell.echo("-e".yellow + " vscode : for opening in vscode editor");
+  shell.echo("-e ".yellow + "atom   : for opening in atom editor");
+  shell.echo("-e ".yellow + "vscode : for opening in vscode editor");
   shell.echo("\n\nSet\\Edit your default cloning folder:\n".white.bgMagenta);
   shell.echo("quick --default <path>".blue);
   shell.echo(
