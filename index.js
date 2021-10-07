@@ -131,16 +131,16 @@ const clone = async () => {
       //console.log("working................ " + store.get("guc-path"));
       shell.cd(`${store.get("guc-path")}`);
     }
-    shell.echo("\nAll checks passed, Let the fun begin\n".rainbow);
+    shell.echo("\nAll checks have passed successfully\n".bgBlue.white);
     console.log(
-      `\n ${capitalizeFirstLetter(appname)} is being cloned...\n`.cyan
+      `\n${capitalizeFirstLetter(appname)} is being cloned...\n`.bgMagenta.white
     );
     depSpin.start();
     shell.exec(`git clone ${url}`, () => {
       depSpin.stop();
       console.log(
-        `\n\n ${capitalizeFirstLetter(appname)} has been cloned successfully\n`
-          .green
+        `\n${capitalizeFirstLetter(appname)} has been cloned successfully\n`
+          .bgGreen.white
       );
       resolve();
     });
@@ -151,15 +151,15 @@ const cd = () => {
   return new Promise((resolve) => {
     shell.cd(`${appname}`);
     if (!shell.test("-f", "package.json")) {
-      console.log(`\n Can't find package.json in the root directory \n`.yellow);
+      console.log(`\nCan't find package.json in the root directory\n`.yellow);
       shell.cd("..");
       resolve();
     } else {
-      console.log("\n Npm packages are being installed...".yellow);
+      console.log("\nNpm packages are being installed...".bgMagenta.white);
       depSpin.start();
       shell.exec(`npm install`, () => {
         depSpin.stop();
-        console.log("\n Npm packages got installed\n".green);
+        console.log("\nNpm packages got installed\n".bgGreen.white);
         resolve();
       });
     }
@@ -169,7 +169,7 @@ const cd = () => {
 const open = () => {
   return new Promise((resolve) => {
     checkIde(idename);
-    console.log("\nYou are all ready to go forth and conquer\n".rainbow);
+    console.log("\nYou are all ready to go forth and conquer\n".bgWhite.black);
     shell.exec(`${idename} .`, () => {
       resolve();
     });
