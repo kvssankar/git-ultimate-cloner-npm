@@ -17,8 +17,8 @@ This package clones the repositry, installs npm packages required from package.j
 
 <img src="https://user-images.githubusercontent.com/55633494/136370624-da565247-67b9-4132-9e87-55de2910cecf.png" height="400px"/>
 
+<img src="https://user-images.githubusercontent.com/70322519/134666741-7c2f2d97-dc34-4296-9e30-2f3ad4aa891e.jpeg" height="450px"/>
 
-![Demo](https://user-images.githubusercontent.com/70322519/134666741-7c2f2d97-dc34-4296-9e30-2f3ad4aa891e.jpeg)
 Currently supported ides : [Atom](https://atom.io/) , [Visual Studio Code](https://code.visualstudio.com/download) 
 
 # How to install?
