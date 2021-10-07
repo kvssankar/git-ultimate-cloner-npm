@@ -7,21 +7,27 @@ depSpin.setSpinnerString("|/-\\");
 
 let idename = "code";
 
-const store = require("data-store")({ path: process.cwd() + "/guc.json" });
+const store = require("data-store")("guc");
 
 const help = () => {
-  shell.echo("\nUsage: ".magenta + "quick clone <repo-link> <options>\n".blue);
+  shell.echo("\n\nGIT-ULTIMATE-CLONER GUIDELINES".white.bgMagenta);
+  shell.echo("\nquick clone <repo-link> <options>\n".blue);
   shell.echo("where options is one of the below\n");
   shell.echo("-e".yellow + " atom   : for opening in atom editor");
   shell.echo("-e".yellow + " vscode : for opening in vscode editor");
-  shell.echo("\n\nSet your default cloning folder:\n".white.bgCyan);
+  shell.echo("\n\nSet\\Edit your default cloning folder:\n".white.bgMagenta);
+  shell.echo("quick --default <path>".blue);
   shell.echo(
-    "quick --default <path>\n".blue +
-      "Example: ".magenta +
+    "\nExample: ".magenta +
       "quick " +
       "--default".yellow +
-      " C:\\Users\\SANKAR KUMAR\\Desktop\\projects"
+      ' "C:\\Users\\SANKAR KUMAR\\Desktop\\projects"'
   );
+  shell.echo(
+    "\n\nClone in the current folder after setting default folder:".white
+      .bgMagenta
+  );
+  shell.echo("\nquick clone <repo-link> --current\n".blue);
 };
 
 const syntaxError = () => {
@@ -39,14 +45,33 @@ if (process.argv[2] == "--help") {
   shell.exit(200);
 }
 
+if (process.argv[2] == "--default") {
+  store.set("guc-path", process.argv[3]);
+  shell.echo(
+    "\nSuccessfully set default path to: ".green + process.argv[3].yellow
+  );
+  shell.echo("\nTIPS: ".bgMagenta.white);
+  shell.echo(
+    "\nClone in current folder instead of default one using " +
+      "--current".yellow
+  );
+  shell.echo(
+    "\nExample: ".yellow + "\nquick clone <repo-link> --current\n".blue
+  );
+  shell.exit(200);
+}
+
 let url = process.argv[3];
 let options = process.argv.slice(4);
-
+let cloneInCurrentPath = 0;
 const optionsExc = () => {
   for (var i = 0; i < options.length; i++) {
     if (options[i] == "-e" && options[i + 1] == "atom") {
       idename = options[i + 1];
       i++;
+    }
+    if (options[i] == "--current") {
+      cloneInCurrentPath = 1;
     }
   }
 };
@@ -60,18 +85,17 @@ if (url.slice(url_length - 4, url_length) == ".git") {
   url = url.slice(0, url_length - 4);
 }
 
-temp_str = url.replace("https://github.com/", "");
+//get appname
+appname = url.replace("https://github.com/", "");
 let t1;
-for (let i = 0; i < temp_str.length; i++) {
-  if (temp_str[i] == "/") {
+for (let i = 0; i < appname.length; i++) {
+  if (appname[i] == "/") {
     t1 = i + 1;
     break;
   }
 }
-temp_str = temp_str.slice(t1);
-temp_str.replace("/", "");
-
-// getting github repo name
+appname = appname.slice(t1);
+appname.replace("/", "");
 
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -100,17 +124,22 @@ const check = () => {
     resolve();
   });
 };
+
 const clone = async () => {
   return new Promise((resolve) => {
+    if (store.has("guc-path") && cloneInCurrentPath == 0) {
+      console.log("working................ " + store.get("guc-path"));
+      shell.cd(`${store.get("guc-path")}`);
+    }
     shell.echo("\nAll checks passed, Let the fun begin\n".rainbow);
     console.log(
-      `\n ${capitalizeFirstLetter(temp_str)} is being cloned...\n`.cyan
+      `\n ${capitalizeFirstLetter(appname)} is being cloned...\n`.cyan
     );
     depSpin.start();
     shell.exec(`git clone ${url}`, () => {
       depSpin.stop();
       console.log(
-        `\n\n ${capitalizeFirstLetter(temp_str)} has been cloned successfully\n`
+        `\n\n ${capitalizeFirstLetter(appname)} has been cloned successfully\n`
           .green
       );
       resolve();
@@ -120,7 +149,7 @@ const clone = async () => {
 
 const cd = () => {
   return new Promise((resolve) => {
-    shell.cd(`${temp_str}`);
+    shell.cd(`${appname}`);
     if (!shell.test("-f", "package.json")) {
       console.log(`\n Can't find package.json in the root directory \n`.yellow);
       shell.cd("..");
