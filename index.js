@@ -17,12 +17,12 @@ const help = () => {
 
 const syntaxError = () => {
   console.log("Not a valid command. Please follow proper syntax\n".red);
+  console.log("Syntax : quick clone <url> [-e {editor name}]\n".yellow);
+  console.log("Supported editors : Visual Studio Code, Atom".yellow);
   console.log(
-    "Syntax : quick clone <url> [-e {editor name}]\n"
+    "For Visual Studio Code, use vscode or leave empty. For Atom, use atom\n"
       .yellow
   );
-  console.log("Supported editors : Visual Studio Code, Atom".yellow);
-  console.log("For Visual Studio Code, use c. For Atom, use a\n".yellow);
 };
 
 if (process.argv[2] == "--help") {
@@ -35,7 +35,7 @@ let options = process.argv.slice(4);
 
 const optionsExc = () => {
   for (var i = 0; i < options.length; i++) {
-    if (options[i] == "-e" && options[i + 1] == "a") {
+    if (options[i] == "-e" && options[i + 1] == "atom") {
       idename = options[i + 1];
       i++;
     }
@@ -46,9 +46,9 @@ if (process.argv[2] != "clone") {
   syntaxError();
   shell.exit(1);
 }
-let url_length = url.length
-if (url.slice(url_length-4,url_length) == ".git") {
-  url = url.slice(0,url_length-4);
+let url_length = url.length;
+if (url.slice(url_length - 4, url_length) == ".git") {
+  url = url.slice(0, url_length - 4);
 }
 
 temp_str = url.replace("https://github.com/", "");
@@ -131,7 +131,7 @@ const cd = () => {
 const open = () => {
   return new Promise((resolve) => {
     checkIde(idename);
-    console.log("\nYou are all ready to go forth and conquer\n".green);
+    console.log("\nYou are all ready to go forth and conquer\n".rainbow);
     shell.exec(`${idename} .`, () => {
       resolve();
     });
