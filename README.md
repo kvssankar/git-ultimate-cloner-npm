@@ -1,5 +1,18 @@
 # Git ultimate cloner
 
+# Use this 😎😎😎
+
+    quick clone <repository-url>
+        
+## Or this 🥵🥵🥵
+    cd desktop
+    cd projects
+    git clone <repo-url>
+    cd repository-name
+    code .
+    ----open terminal in vs code----
+    npm install
+
 # What does it do?
 1. Clones your repo
 2. Installs all the npm packages
@@ -23,23 +36,11 @@ Currently supported ides : [Atom](https://atom.io/) , [Visual Studio Code](https
 
     npm i -g git-ultimate-cloner
 
-
-# Use this 😎😎😎
-
-    quick clone <repository-url> [-e {editor name}]
     
-   Note:
-   > For Visual Studio Code, use c. For Atom, use a.
+Note:
+   > For Visual Studio Code, use c. For Atom, use -e atom.
    
-   > Opens in Visual Studio Code by defualt
-    
-## Or this 🥵🥵🥵
-    
-    git clone <repo-url>
-    cd repository-name
-    code .
-    ----open terminal in vs code----
-    npm install
+   > Opens in Visual Studio Code by default or -e vscode
 
 ## Examples
 1. For Visual Studio Code (defualt) :
@@ -48,7 +49,7 @@ Currently supported ides : [Atom](https://atom.io/) , [Visual Studio Code](https
    ```
 2. For Atom :
    ```sh
-   quick clone https://github.com/Tanmay000009/git-ultimate-cloner -e a
+   quick clone https://github.com/Tanmay000009/git-ultimate-cloner -e atom
    ```
 
 ## Prerequsites
