@@ -20,7 +20,7 @@
 
    All in a single step 🤩🤩🤩
 
-4. Set your default path so wherever you open your command prompt it will clone into the path you set
+4. Set your default path so that **where ever** you open your command prompt it will clone into the path you set
    
    Example: Your projects folder
  
