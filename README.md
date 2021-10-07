@@ -11,6 +11,12 @@ This package clones the repositry, installs npm packages required from package.j
 1. Clones your repo
 2. Installs all the npm packages
 3. Opens your repositoy in your favorite ide
+4. Set your default path so where ever you open your command prompt it will clone into the path you set
+ 
+## Check the image for more details
+
+![image](https://user-images.githubusercontent.com/55633494/136370624-da565247-67b9-4132-9e87-55de2910cecf.png)
+
 
 ![Demo](https://user-images.githubusercontent.com/70322519/134666741-7c2f2d97-dc34-4296-9e30-2f3ad4aa891e.jpeg)
 Currently supported ides : [Atom](https://atom.io/) , [Visual Studio Code](https://code.visualstudio.com/download) 
