@@ -15,7 +15,7 @@ This package clones the repositry, installs npm packages required from package.j
  
 ## Check the image for more details
 
-<img src="https://user-images.githubusercontent.com/55633494/136370624-da565247-67b9-4132-9e87-55de2910cecf.png" height="50%"/>
+<img src="https://user-images.githubusercontent.com/55633494/136370624-da565247-67b9-4132-9e87-55de2910cecf.png" height="400px"/>
 
 
 ![Demo](https://user-images.githubusercontent.com/70322519/134666741-7c2f2d97-dc34-4296-9e30-2f3ad4aa891e.jpeg)
