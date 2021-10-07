@@ -1,6 +1,6 @@
 {
   "name": "git-ultimate-cloner",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "description": "Are you tried of cloning repo, opening in vs-code and installing packages... No more use git-ultimate-cloner and make your life simple",
   "main": "index.js",
   "scripts": {
@@ -15,17 +15,17 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kvssankar/hit-npm.git"
+    "url": "git+https://github.com/kvssankar/git-ultimate-cloner.git"
   },
   "author": "KVSSK",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kvssankar/hit-npm/issues"
+    "url": "https://github.com/kvssankar/git-ultimate-cloner/issues"
   },
   "bin": {
     "quick": "index.js"
   },
-  "homepage": "https://github.com/kvssankar/hit-npm#readme",
+  "homepage": "https://github.com/kvssankar/git-ultimate-cloner#readme",
   "dependencies": {
     "cli-spinner": "^0.2.10",
     "colors": "^1.4.0",
