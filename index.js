@@ -160,6 +160,7 @@ const cd = () => {
       shell.exec(`npm install`, () => {
         depSpin.stop();
         console.log("\nNpm packages got installed\n".bgGreen.white);
+        shell.cd("..");
         resolve();
       });
     }
@@ -169,6 +170,7 @@ const cd = () => {
 const open = () => {
   return new Promise((resolve) => {
     checkIde(idename);
+    shell.cd(`${appname}`);
     console.log("\nYou are all ready to go forth and conquer\n".bgWhite.black);
     shell.exec(`${idename} .`, () => {
       resolve();
