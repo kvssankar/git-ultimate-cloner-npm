@@ -2,6 +2,8 @@
 
 ***Read the following completely.***
 
+**In order to communicate with us, please proceed to discussions tab**
+
 ## SETUP
 
  1. Fork the repo
