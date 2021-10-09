@@ -1,8 +1,9 @@
+
 # GUIDELINES FOR CONTRIBUTION
 
 ***Read the following completely.***
 
-**In order to communicate with us, please proceed to discussions tab**
+**In order to communicate with us, please proceed to [discussions tab](https://github.com/kvssankar/git-ultimate-cloner/discussions)**
 
 ## SETUP
 
