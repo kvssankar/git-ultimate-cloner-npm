@@ -128,7 +128,6 @@ const check = () => {
 const clone = async () => {
   return new Promise((resolve) => {
     if (store.has("guc-path") && cloneInCurrentPath == 0) {
-      //console.log("working................ " + store.get("guc-path"));
       shell.cd(`${store.get("guc-path")}`);
     }
     shell.echo("\nAll checks have passed successfully\n".bgBlue.white);
