@@ -105,7 +105,8 @@ const run = async () => {
   await check();
   await optionsExc();
   await clone();
-  await cd();
+  await npm_packages();
+  await pip_packages();
   await open();
   shell.exit(200);
 };
@@ -146,7 +147,7 @@ const clone = async () => {
   });
 };
 
-const cd = () => {
+const npm_packages = () => {
   return new Promise((resolve) => {
     shell.cd(`${appname}`);
     if (!shell.test("-f", "package.json")) {
@@ -159,6 +160,26 @@ const cd = () => {
       shell.exec(`npm install`, () => {
         depSpin.stop();
         console.log("\nNpm packages got installed\n".bgGreen.white);
+        shell.cd("..");
+        resolve();
+      });
+    }
+  });
+};
+
+const pip_packages = () => {
+  return new Promise((resolve) => {
+    shell.cd(`${appname}`);
+    if (!shell.test("-f", "requirements.txt")) {
+      console.log(`\nCan't find requirements.txt in the root directory\n`.yellow);
+      shell.cd("..");
+      resolve();
+    } else {
+      console.log("\nPip packages are being installed...".bgMagenta.white);
+      depSpin.start();
+      shell.exec(`pip install -r requirements.txt`, () => {
+        depSpin.stop();
+        console.log("\nPip packages got installed\n".bgGreen.white);
         shell.cd("..");
         resolve();
       });
