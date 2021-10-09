@@ -30,8 +30,8 @@ For contributing please read [this](https://github.com/kvssankar/git-ultimate-cl
 ## Check the image for more details
 
 
-<img src="https://user-images.githubusercontent.com/70322519/134666741-7c2f2d97-dc34-4296-9e30-2f3ad4aa891e.jpeg" width="500px" height="400px"/> 
-<img src="https://user-images.githubusercontent.com/55633494/136370624-da565247-67b9-4132-9e87-55de2910cecf.png" width="500px" height="400px"/>
+<img src="https://user-images.githubusercontent.com/70322519/134666741-7c2f2d97-dc34-4296-9e30-2f3ad4aa891e.jpeg" width="350px" height="300px"/> 
+<img src="https://user-images.githubusercontent.com/55633494/136370624-da565247-67b9-4132-9e87-55de2910cecf.png" width="350px" height="300px"/>
 
 
 
