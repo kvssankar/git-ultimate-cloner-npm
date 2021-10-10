@@ -21,9 +21,12 @@ Please follow the issue template given:
  - Bug report
  - Feature Request
 
+**Any issue which is INACTIVE for 2 days will be assigned to someone else**
+
 ## Creating a PR
 
 1. Please throughly test each and every functionality before sending pull request
-2. If the package breaks the PR will be marked **invalid** immediately
-3. Dont send multiple PRs for single issue, use the same pr or else will be marked **spam**
+2. If the package breaks the PR will be marked **INVALID** immediately
+3. Dont send multiple PRs for single issue, use the same pr or else will be marked **SPAM**
 
+**Any PR which is INACTIVE (changes requested are not implemented) for more than 2 days will be marked INVALID**
