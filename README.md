@@ -23,7 +23,7 @@ For contributing please read [this](https://github.com/kvssankar/git-ultimate-cl
 
    All in a single step 🤩🤩🤩
 
-4. Set your default path so that **WHERE EVER** you open your command prompt it will clone into the path you set
+4. Set your default path so that **WHEREVER** you open your command prompt it will clone into the path you set
    
    Example: Your projects folder
  
