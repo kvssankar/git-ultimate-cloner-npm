@@ -107,6 +107,7 @@ const run = async () => {
   await clone();
   await npm_packages();
   await pip_packages();
+  await go_deps();
   await open();
   shell.exit(200);
 };
@@ -171,7 +172,9 @@ const pip_packages = () => {
   return new Promise((resolve) => {
     shell.cd(`${appname}`);
     if (!shell.test("-f", "requirements.txt")) {
-      console.log(`\nCan't find requirements.txt in the root directory\n`.yellow);
+      console.log(
+        `\nCan't find requirements.txt in the root directory\n`.yellow
+      );
       shell.cd("..");
       resolve();
     } else {
@@ -180,6 +183,29 @@ const pip_packages = () => {
       shell.exec(`pip install -r requirements.txt`, () => {
         depSpin.stop();
         console.log("\nPip packages got installed\n".bgGreen.white);
+        shell.cd("..");
+        resolve();
+      });
+    }
+  });
+};
+
+const go_deps = () => {
+  return new Promise((resolve) => {
+    shell.cd(`${appname}`);
+    if (!shell.test("-f", "go.mod")) {
+      console.log(`\nCan't find go.mod in the root directory\n`.yellow);
+      shell.cd("..");
+      resolve();
+    } else {
+      console.log(
+        "\nGo dependencies are being installed are being installed...".bgMagenta
+          .white
+      );
+      depSpin.start();
+      shell.exec(`go mod tidy`, () => {
+        depSpin.stop();
+        console.log("\nGo dependencies got installed\n".bgGreen.white);
         shell.cd("..");
         resolve();
       });
