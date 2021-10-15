@@ -108,6 +108,7 @@ const run = async () => {
   await npm_packages();
   await pip_packages();
   await go_deps();
+  await rust_crates();
   await open();
   shell.exit(200);
 };
@@ -206,6 +207,29 @@ const go_deps = () => {
       shell.exec(`go mod tidy`, () => {
         depSpin.stop();
         console.log("\nGo dependencies got installed\n".bgGreen.white);
+        shell.cd("..");
+        resolve();
+      });
+    }
+  });
+};
+
+const rust_crates = () => {
+  return new Promise((resolve) => {
+    shell.cd(`${appname}`);
+    if (!shell.test("-f", "Cargo.toml")) {
+      console.log(`\nCan't find Cargo.toml in the root directory\n`.yellow);
+      shell.cd("..");
+      resolve();
+    } else {
+      console.log(
+        "\nRust crates are being installed are being installed...".bgMagenta
+          .white
+      );
+      depSpin.start();
+      shell.exec(`cargo build`, () => {
+        depSpin.stop();
+        console.log("\nRust crates got installed\n".bgGreen.white);
         shell.cd("..");
         resolve();
       });
