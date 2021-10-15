@@ -199,10 +199,7 @@ const go_deps = () => {
       shell.cd("..");
       resolve();
     } else {
-      console.log(
-        "\nGo dependencies are being installed are being installed...".bgMagenta
-          .white
-      );
+      console.log("\nGo dependencies are being installed...".bgMagenta.white);
       depSpin.start();
       shell.exec(`go mod tidy`, () => {
         depSpin.stop();
@@ -222,10 +219,7 @@ const rust_crates = () => {
       shell.cd("..");
       resolve();
     } else {
-      console.log(
-        "\nRust crates are being installed are being installed...".bgMagenta
-          .white
-      );
+      console.log("\nRust crates are being installed...".bgMagenta.white);
       depSpin.start();
       shell.exec(`cargo build`, () => {
         depSpin.stop();
