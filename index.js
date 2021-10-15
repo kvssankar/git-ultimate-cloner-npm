@@ -109,6 +109,7 @@ const run = async () => {
   await pip_packages();
   await go_deps();
   await rust_crates();
+  await dart_packages();
   await open();
   shell.exit(200);
 };
@@ -224,6 +225,26 @@ const rust_crates = () => {
       shell.exec(`cargo build`, () => {
         depSpin.stop();
         console.log("\nRust crates got installed\n".bgGreen.white);
+        shell.cd("..");
+        resolve();
+      });
+    }
+  });
+};
+
+const dart_packages = () => {
+  return new Promise((resolve) => {
+    shell.cd(`${appname}`);
+    if (!shell.test("-f", "pubspec.yaml")) {
+      console.log(`\nCan't find pubspec.yaml in the root directory\n`.yellow);
+      shell.cd("..");
+      resolve();
+    } else {
+      console.log("\nDart packages are being installed...".bgMagenta.white);
+      depSpin.start();
+      shell.exec(`dart pub get`, () => {
+        depSpin.stop();
+        console.log("\nDart packages got installed\n".bgGreen.white);
         shell.cd("..");
         resolve();
       });
