@@ -111,6 +111,7 @@ const run = async () => {
   await rust_crates();
   await dart_packages();
   await ruby_gems();
+  await php_modules();
   await open();
   shell.exit(200);
 };
@@ -266,6 +267,26 @@ const ruby_gems = () => {
       shell.exec(`bundle install`, () => {
         depSpin.stop();
         console.log("\nRuby gems got installed\n".bgGreen.white);
+        shell.cd("..");
+        resolve();
+      });
+    }
+  });
+};
+
+const php_modules = () => {
+  return new Promise((resolve) => {
+    shell.cd(`${appname}`);
+    if (!shell.test("-f", "composer.json")) {
+      console.log(`\nCan't find composer.json in the root directory\n`.yellow);
+      shell.cd("..");
+      resolve();
+    } else {
+      console.log("\nPHP modules are being installed...".bgMagenta.white);
+      depSpin.start();
+      shell.exec(`php composer.phar install`, () => {
+        depSpin.stop();
+        console.log("\nPHP modules got installed\n".bgGreen.white);
         shell.cd("..");
         resolve();
       });
