@@ -109,6 +109,8 @@ const run = async () => {
   await pip_packages();
   await go_deps();
   await rust_crates();
+  await dart_packages();
+  await ruby_gems();
   await open();
   shell.exit(200);
 };
@@ -199,10 +201,7 @@ const go_deps = () => {
       shell.cd("..");
       resolve();
     } else {
-      console.log(
-        "\nGo dependencies are being installed are being installed...".bgMagenta
-          .white
-      );
+      console.log("\nGo dependencies are being installed...".bgMagenta.white);
       depSpin.start();
       shell.exec(`go mod tidy`, () => {
         depSpin.stop();
@@ -222,14 +221,51 @@ const rust_crates = () => {
       shell.cd("..");
       resolve();
     } else {
-      console.log(
-        "\nRust crates are being installed are being installed...".bgMagenta
-          .white
-      );
+      console.log("\nRust crates are being installed...".bgMagenta.white);
       depSpin.start();
       shell.exec(`cargo build`, () => {
         depSpin.stop();
         console.log("\nRust crates got installed\n".bgGreen.white);
+        shell.cd("..");
+        resolve();
+      });
+    }
+  });
+};
+
+const dart_packages = () => {
+  return new Promise((resolve) => {
+    shell.cd(`${appname}`);
+    if (!shell.test("-f", "pubspec.yaml")) {
+      console.log(`\nCan't find pubspec.yaml in the root directory\n`.yellow);
+      shell.cd("..");
+      resolve();
+    } else {
+      console.log("\nDart packages are being installed...".bgMagenta.white);
+      depSpin.start();
+      shell.exec(`dart pub get`, () => {
+        depSpin.stop();
+        console.log("\nDart packages got installed\n".bgGreen.white);
+        shell.cd("..");
+        resolve();
+      });
+    }
+  });
+};
+
+const ruby_gems = () => {
+  return new Promise((resolve) => {
+    shell.cd(`${appname}`);
+    if (!shell.test("-f", "Gemfile")) {
+      console.log(`\nCan't find Gemfile in the root directory\n`.yellow);
+      shell.cd("..");
+      resolve();
+    } else {
+      console.log("\nRuby gems are being installed...".bgMagenta.white);
+      depSpin.start();
+      shell.exec(`bundle install`, () => {
+        depSpin.stop();
+        console.log("\nRuby gems got installed\n".bgGreen.white);
         shell.cd("..");
         resolve();
       });
