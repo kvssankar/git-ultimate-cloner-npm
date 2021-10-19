@@ -155,19 +155,41 @@ const clone = async () => {
 const npm_packages = () => {
   return new Promise((resolve) => {
     shell.cd(`${appname}`);
+
     if (!shell.test("-f", "package.json")) {
       console.log(`\nCan't find package.json in the root directory\n`.yellow);
       shell.cd("..");
       resolve();
     } else {
       console.log("\nNpm packages are being installed...".bgMagenta.white);
-      depSpin.start();
-      shell.exec(`npm install`, () => {
-        depSpin.stop();
-        console.log("\nNpm packages got installed\n".bgGreen.white);
-        shell.cd("..");
-        resolve();
-      });
+      if (shell.test("-f", "yarn.lock")) {
+        console.log("\nUsing yarn".bgMagenta.white);
+        depSpin.start();
+        shell.exec(`yarn install`, () => {
+          depSpin.stop();
+          console.log("\nNpm packages got installed\n".bgGreen.white);
+          shell.cd("..");
+          resolve();
+        });
+      } else if (shell.test("-f", "pnpm-lock.yaml")) {
+        console.log("\nUsing pnpm".bgMagenta.white);
+        depSpin.start();
+        shell.exec(`pnpm install`, () => {
+          depSpin.stop();
+          console.log("\nNpm packages got installed\n".bgGreen.white);
+          shell.cd("..");
+          resolve();
+        });
+      } else {
+        console.log("\nUsing npm".bgMagenta.white);
+        depSpin.start();
+        shell.exec(`npm install`, () => {
+          depSpin.stop();
+          console.log("\nNpm packages got installed\n".bgGreen.white);
+          shell.cd("..");
+          resolve();
+        });
+      }
     }
   });
 };
