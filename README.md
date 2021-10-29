@@ -18,7 +18,7 @@ For contributing please read [this](https://github.com/kvssankar/git-ultimate-cl
 
 # What does it do?
 1. Clones your repo
-2. Installs all the npm packages
+2. Installs all the npm packages Or dart, php... [find more](https://github.com/kvssankar/git-ultimate-cloner/blob/master/README.md#supports-various-package-managers)
 3. Opens your repositoy in your favorite ide
 
    All in a single step 🤩🤩🤩
