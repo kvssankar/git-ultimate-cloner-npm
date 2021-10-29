@@ -26,27 +26,18 @@ For contributing please read [this](https://github.com/kvssankar/git-ultimate-cl
 4. Set your default path so that **WHEREVER** you open your command prompt it will clone into the path you set
    
    Example: Your projects folder
- 
-## Check the image for more details
 
 
-<img src="https://user-images.githubusercontent.com/70322519/134666741-7c2f2d97-dc34-4296-9e30-2f3ad4aa891e.jpeg" width="350px" height="300px"/> 
-<img src="https://user-images.githubusercontent.com/55633494/136370624-da565247-67b9-4132-9e87-55de2910cecf.png" width="350px" height="300px"/>
+**Currently supported ides : [Atom](https://atom.io/) , [Visual Studio Code](https://code.visualstudio.com/download)**
 
-
-
-
-
-Currently supported ides : [Atom](https://atom.io/) , [Visual Studio Code](https://code.visualstudio.com/download) 
-
-# How to install?
+## How to install?
 
     npm i -g git-ultimate-cloner
     #For help
     quick --help
     
     
-## Supports various package managers:
+# Currently supported various package managers:
 Automatically searches and installs...
 
 1. NPM Packages
@@ -128,5 +119,7 @@ if (youLikedOurPackage) {
 ```
 
 -----------
+
+
 
 
