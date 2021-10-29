@@ -9,25 +9,43 @@ let idename = "code";
 
 const store = require("data-store")("guc");
 
+const instrustionsToAddPaths = () => {
+  shell.echo("\n\nAdd your custom folder paths\n".underline.magenta);
+  shell.echo("quick --set-<folderName> <path>".blue);
+  shell.echo(
+    "\nExample to set path to my node folder:\n".cyan +
+      "quick " +
+      "--set-node".yellow +
+      ' "C:\\Users\\SANKAR KUMAR\\Desktop\\projects\\node"'
+  );
+  shell.echo("\n\nClone in folder your custom folder:\n".underline.magenta);
+  shell.echo("quick clone <repo-link> --folderName".blue);
+  shell.echo("\nExample to clone my node project to node folder:".cyan);
+  shell.echo("quick clone <repo-link> --path node");
+  shell.echo(
+    "\n\nClone in the current folder after setting default folder:".underline
+      .magenta
+  );
+  shell.echo("\nquick clone <repo-link> --path current\n".blue);
+};
+
 const help = () => {
-  shell.echo("\n\nGIT-ULTIMATE-CLONER GUIDELINES".white.bgMagenta);
+  shell.echo("\n\nGIT-ULTIMATE-CLONER GUIDELINES".underline.magenta);
   shell.echo("\nquick clone <repo-link> <options>\n".blue);
   shell.echo("where options is one of the below\n");
   shell.echo("-e ".yellow + "atom   : for opening in atom editor");
   shell.echo("-e ".yellow + "vscode : for opening in vscode editor");
-  shell.echo("\n\nSet\\Edit your default cloning folder:\n".white.bgMagenta);
-  shell.echo("quick --default <path>".blue);
+  shell.echo("\n\nSet\\Edit your default cloning folder:\n".underline.magenta);
+  shell.echo("quick --set-default <path>".blue);
   shell.echo(
-    "\nExample: ".magenta +
+    "\nExample:\n".cyan +
       "quick " +
-      "--default".yellow +
+      "--set-default".yellow +
       ' "C:\\Users\\SANKAR KUMAR\\Desktop\\projects"'
   );
-  shell.echo(
-    "\n\nClone in the current folder after setting default folder:".white
-      .bgMagenta
-  );
-  shell.echo("\nquick clone <repo-link> --current\n".blue);
+  shell.echo("\n\nView your paths for custom folders:\n".underline.magenta);
+  shell.echo("quick --view-paths".blue);
+  instrustionsToAddPaths();
 };
 
 const syntaxError = () => {
@@ -45,19 +63,39 @@ if (process.argv[2] == "--help") {
   shell.exit(200);
 }
 
-if (process.argv[2] == "--default") {
-  store.set("guc-path", process.argv[3]);
-  shell.echo(
-    "\nSuccessfully set default path to: ".green + process.argv[3].yellow
-  );
-  shell.echo("\nTIPS: ".bgMagenta.white);
-  shell.echo(
-    "\nClone in current folder instead of default one using " +
-      "--current".yellow
-  );
-  shell.echo(
-    "\nExample: ".yellow + "\nquick clone <repo-link> --current\n".blue
-  );
+if (process.argv[2] == "--view-paths") {
+  if (store.has("paths")) {
+    console.log(store.get("paths"));
+  } else {
+    console.log("\nNo paths added yet".bgWhite.black);
+    instrustionsToAddPaths();
+  }
+  shell.exit(200);
+}
+
+if (process.argv[2].startsWith("--set-")) {
+  var pathName = process.argv[2].split("--set-")[1] + "-path";
+
+  var mapy = store.get("paths");
+  if (mapy == null) {
+    mapy = new Map();
+  }
+  mapy.set(pathName, process.argv[3]);
+  store.set("paths", mapy);
+
+  if (pathName == "default-path") {
+    shell.echo(
+      "\nSuccessfully set default path to: ".green + process.argv[3].yellow
+    );
+    shell.echo("\nTIPS: ".bgMagenta.white);
+    shell.echo(
+      "\nClone in current folder instead of default one using " +
+        "--current".yellow
+    );
+    shell.echo(
+      "\nExample: ".yellow + "\nquick clone <repo-link> --current\n".blue
+    );
+  }
   shell.exit(200);
 }
 
@@ -70,8 +108,10 @@ const optionsExc = () => {
       idename = options[i + 1];
       i++;
     }
-    if (options[i] == "--current") {
-      cloneInCurrentPath = 1;
+    if (options[i] == "--path") {
+      if (options[i + 1] == "current") {
+        cloneInCurrentPath = 1;
+      }
     }
   }
 };
@@ -133,8 +173,12 @@ const check = () => {
 
 const clone = async () => {
   return new Promise((resolve) => {
-    if (store.has("guc-path") && cloneInCurrentPath == 0) {
-      shell.cd(`${store.get("guc-path")}`);
+    if (
+      store.has("paths") &&
+      cloneInCurrentPath == 0 &&
+      store.get("paths").has("default-path")
+    ) {
+      shell.cd(`${store.get("paths").get("default-path")}`);
     }
     shell.echo("\nAll checks have passed successfully\n".bgBlue.white);
     console.log(
