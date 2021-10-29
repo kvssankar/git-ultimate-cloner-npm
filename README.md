@@ -42,6 +42,8 @@ Currently supported ides : [Atom](https://atom.io/) , [Visual Studio Code](https
 # How to install?
 
     npm i -g git-ultimate-cloner
+    #For help
+    quick --help
     
     
 ## Supports various package managers:
