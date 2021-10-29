@@ -42,10 +42,21 @@ Currently supported ides : [Atom](https://atom.io/) , [Visual Studio Code](https
 # How to install?
 
     npm i -g git-ultimate-cloner
+    
+    
+## Supports various package managers:
+Automatically searches and installs...
 
+1. NPM Packages
+2. PHP Modules
+3. Yarn and pnpm
+4. Dart Packages
+5. Ruby Gems
+6. Rust Crates
+7. Go Packages
     
 Note:
-   > For Visual Studio Code, use c. For Atom, use -e atom.
+   > For Visual Studio Code, use c. For Atom, use -e atom
    
    > Opens in Visual Studio Code by default or -e vscode
 
