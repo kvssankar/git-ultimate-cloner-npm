@@ -9,30 +9,78 @@ let idename = "code";
 
 const store = require("data-store")("guc");
 
+// const customFolderHelp = () => {
+//   shell.echo("\n\nSet\\Edit your cloning folder:\n".white.bgMagenta);
+//   shell.echo("quick --set-folder <foldername> <path>".blue);
+//   shell.echo(
+//     "\nExample: ".magenta +
+//       "quick " +
+//       "--set-folder node" +
+//       ' "C:\\Users\\SANKAR KUMAR\\Desktop\\projects\node"'
+//   );
+//   shell.echo("\n\nHow to use:".white.bgMagenta);
+//   shell.echo("\nquick clone <repo-link> --folder <foldername>");
+//   shell.echo(
+//     "\nExample: ".magenta + "quick clone <repo-link> --folder node".blue
+//   );
+// };
+
+// const defaultFolderHelp = () => {
+//   shell.echo("\n\nSet\\Edit your default cloning folder:\n".white.bgMagenta);
+//   shell.echo("quick --set-folder default <path>".blue);
+//   shell.echo(
+//     "\nExample: ".magenta +
+//       "quick " +
+//       "--set-folder default".yellow +
+//       ' "C:\\Users\\SANKAR KUMAR\\Desktop\\projects"'
+//   );
+//   shell.echo(
+//     "\n\nClone in the current folder if u set the default folder:".white
+//       .bgMagenta
+//   );
+//   shell.echo("quick clone <repo-link> --folder current".blue);
+// };
+
+const defaultFolderHelp = () => {
+  shell.echo(
+    "--set-folder default".yellow +
+      ' "<path>"'.cyan +
+      " : for setting default folder to clone into"
+  );
+  shell.echo(
+    "--folder ".yellow +
+      "current".cyan +
+      " : to clone into current cmd directory"
+  );
+};
+
+const customFolderHelp = () => {
+  shell.echo(
+    "--set-folder ".yellow +
+      "<folderName>".cyan +
+      ' "<path>"'.cyan +
+      " : for setting custom folders to clone into"
+  );
+  shell.echo(
+    "--folder ".yellow +
+      "<folderName>".cyan +
+      " : for cloning into custom folders set"
+  );
+};
+
 const help = () => {
   shell.echo("\n\nGIT-ULTIMATE-CLONER GUIDELINES".white.bgMagenta);
   shell.echo("\nquick clone <repo-link> <options>\n".blue);
   shell.echo("where options is one of the below\n");
-  shell.echo("-e ".yellow + "atom   : for opening in atom editor");
-  shell.echo("-e ".yellow + "vscode : for opening in vscode editor");
-  shell.echo("\n\nSet\\Edit your default cloning folder:\n".white.bgMagenta);
-  shell.echo("quick --default <path>".blue);
-  shell.echo(
-    "\nExample: ".magenta +
-      "quick " +
-      "--default".yellow +
-      ' "C:\\Users\\SANKAR KUMAR\\Desktop\\projects"'
-  );
-  shell.echo(
-    "\n\nClone in the current folder after setting default folder:".white
-      .bgMagenta
-  );
-  shell.echo("\nquick clone <repo-link> --current\n".blue);
+  shell.echo("--ide ".yellow + "atom   : for opening in atom editor");
+  shell.echo("--ide ".yellow + "vscode : for opening in vscode editor");
+  defaultFolderHelp();
+  customFolderHelp();
 };
 
 const syntaxError = () => {
   console.log("Not a valid command. Please follow proper syntax\n".red);
-  console.log("Syntax : quick clone <url> [-e {editor name}]\n".yellow);
+  console.log("Syntax : quick clone <url> [--ide {editor name}]\n".yellow);
   console.log("Supported editors : Visual Studio Code, Atom".yellow);
   console.log(
     "For Visual Studio Code, use vscode or leave empty. For Atom, use atom\n"
@@ -45,33 +93,37 @@ if (process.argv[2] == "--help") {
   shell.exit(200);
 }
 
-if (process.argv[2] == "--default") {
-  store.set("guc-path", process.argv[3]);
+if (process.argv[2] == "--set-folder") {
+  var folderName = "guc-" + process.argv[3];
+  store.set(folderName, process.argv[4]);
   shell.echo(
-    "\nSuccessfully set default path to: ".green + process.argv[3].yellow
+    `Successfully set ${process.argv[3]} path as `.green + process.argv[4].blue
   );
-  shell.echo("\nTIPS: ".bgMagenta.white);
-  shell.echo(
-    "\nClone in current folder instead of default one using " +
-      "--current".yellow
-  );
-  shell.echo(
-    "\nExample: ".yellow + "\nquick clone <repo-link> --current\n".blue
-  );
+  shell.echo("\nTo Know more about usage: ".magenta + "quick --help".yellow);
   shell.exit(200);
 }
 
 let url = process.argv[3];
 let options = process.argv.slice(4);
 let cloneInCurrentPath = 0;
+let cloneInCustomPath = null;
 const optionsExc = () => {
   for (var i = 0; i < options.length; i++) {
-    if (options[i] == "-e" && options[i + 1] == "atom") {
+    if (options[i] == "--ide" && options[i + 1] == "atom") {
       idename = options[i + 1];
       i++;
     }
-    if (options[i] == "--current") {
-      cloneInCurrentPath = 1;
+    if (options[i] == "--folder") {
+      var path = "guc-" + options[i + 1];
+      if (store.has(path)) {
+        if (path == "guc-current") {
+          cloneInCurrentPath = 1;
+        } else {
+          cloneInCustomPath = path;
+          console.log(`Cloning into ${store.get(path)} folder\n`.green);
+        }
+      }
+      i++;
     }
   }
 };
@@ -133,10 +185,16 @@ const check = () => {
 
 const clone = async () => {
   return new Promise((resolve) => {
-    if (store.has("guc-path") && cloneInCurrentPath == 0) {
-      shell.cd(`${store.get("guc-path")}`);
+    if (
+      store.has("guc-default") &&
+      cloneInCurrentPath == 0 &&
+      cloneInCustomPath == null
+    ) {
+      shell.cd(`${store.get("guc-default")}`);
+    } else if (cloneInCustomPath !== null) {
+      shell.cd(`${store.get(cloneInCustomPath)}`);
     }
-    shell.echo("\nAll checks have passed successfully\n".bgBlue.white);
+    shell.echo("\nAll checks has passed successfully\n".bgBlue.white);
     console.log(
       `\n${capitalizeFirstLetter(appname)} is being cloned...\n`.bgMagenta.white
     );
@@ -157,7 +215,6 @@ const npm_packages = () => {
     shell.cd(`${appname}`);
 
     if (!shell.test("-f", "package.json")) {
-      console.log(`\nCan't find package.json in the root directory\n`.yellow);
       shell.cd("..");
       resolve();
     } else {
@@ -198,9 +255,6 @@ const pip_packages = () => {
   return new Promise((resolve) => {
     shell.cd(`${appname}`);
     if (!shell.test("-f", "requirements.txt")) {
-      console.log(
-        `\nCan't find requirements.txt in the root directory\n`.yellow
-      );
       shell.cd("..");
       resolve();
     } else {
@@ -220,7 +274,6 @@ const go_deps = () => {
   return new Promise((resolve) => {
     shell.cd(`${appname}`);
     if (!shell.test("-f", "go.mod")) {
-      console.log(`\nCan't find go.mod in the root directory\n`.yellow);
       shell.cd("..");
       resolve();
     } else {
@@ -240,7 +293,6 @@ const rust_crates = () => {
   return new Promise((resolve) => {
     shell.cd(`${appname}`);
     if (!shell.test("-f", "Cargo.toml")) {
-      console.log(`\nCan't find Cargo.toml in the root directory\n`.yellow);
       shell.cd("..");
       resolve();
     } else {
@@ -260,7 +312,6 @@ const dart_packages = () => {
   return new Promise((resolve) => {
     shell.cd(`${appname}`);
     if (!shell.test("-f", "pubspec.yaml")) {
-      console.log(`\nCan't find pubspec.yaml in the root directory\n`.yellow);
       shell.cd("..");
       resolve();
     } else {
@@ -280,7 +331,6 @@ const ruby_gems = () => {
   return new Promise((resolve) => {
     shell.cd(`${appname}`);
     if (!shell.test("-f", "Gemfile")) {
-      console.log(`\nCan't find Gemfile in the root directory\n`.yellow);
       shell.cd("..");
       resolve();
     } else {
@@ -300,7 +350,6 @@ const php_modules = () => {
   return new Promise((resolve) => {
     shell.cd(`${appname}`);
     if (!shell.test("-f", "composer.json")) {
-      console.log(`\nCan't find composer.json in the root directory\n`.yellow);
       shell.cd("..");
       resolve();
     } else {
