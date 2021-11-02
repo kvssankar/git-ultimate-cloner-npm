@@ -54,7 +54,7 @@ Automatically searches and installs...
 
 1. To set default path to clone into:
 
-		quick --set-folder default C:\Users\SANKAR KUMAR\Desktop\projects
+		quick --set-folder default "C:\Users\SANKAR KUMAR\Desktop\projects"
 
 2. If u set a default folder but want to clone into current folder then:
 
@@ -62,7 +62,7 @@ Automatically searches and installs...
 
 3. Set more custom folders to clone ur projects into respective folders:
 
-		quick --set-folder node C:\Users\SANKAR KUMAR\Desktop\projects\node
+		quick --set-folder node "C:\Users\SANKAR KUMAR\Desktop\projects\node"
 
 4. To clone into custom folder:
 
