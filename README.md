@@ -42,7 +42,7 @@ For contributing please read [this](https://github.com/kvssankar/git-ultimate-cl
 
 3. Set more custom folders to clone ur projects into respective folders:
 
-		quick --set-folder foldername "C:\Users\SANKAR KUMAR\Desktop\projects\foldername"
+		quick --set-folder myfolder "C:\Users\SANKAR KUMAR\Desktop\projects\myfolder"
 
 4. To clone into custom folder:
 
