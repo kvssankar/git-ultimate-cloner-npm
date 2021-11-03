@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const shell = require("shelljs");
 const colors = require("colors");
-const hyperlinker = require('hyperlinker');
+const hyperlinker = require("hyperlinker");
 var Spinner = require("cli-spinner").Spinner;
 var depSpin = new Spinner("%s");
 depSpin.setSpinnerString("|/-\\");
@@ -13,27 +13,27 @@ const store = require("data-store")("guc");
 const defaultFolderHelp = () => {
   shell.echo(
     "--set-folder default".yellow +
-    ' "<path>"'.cyan +
-    " : for setting default folder to clone into"
+      ' "<path>"'.cyan +
+      " : for setting default folder to clone into"
   );
   shell.echo(
     "--folder ".yellow +
-    "current".cyan +
-    " : to clone into current cmd directory"
+      "current".cyan +
+      " : to clone into current cmd directory"
   );
 };
 
 const customFolderHelp = () => {
   shell.echo(
     "--set-folder ".yellow +
-    "<folderName>".cyan +
-    ' "<path>"'.cyan +
-    " : for setting custom folders to clone into"
+      "<folderName>".cyan +
+      ' "<path>"'.cyan +
+      " : for setting custom folders to clone into"
   );
   shell.echo(
     "--folder ".yellow +
-    "<folderName>".cyan +
-    " : for cloning into custom folders set"
+      "<folderName>".cyan +
+      " : for cloning into custom folders set"
   );
 };
 
@@ -45,7 +45,12 @@ const help = () => {
   shell.echo("--ide ".yellow + "vscode : for opening in vscode editor");
   defaultFolderHelp();
   customFolderHelp();
-  console.log(hyperlinker('\nTo know more: https://github.com/kvssankar/git-ultimate-cloner#documentation', ' https://github.com/kvssankar/git-ultimate-cloner#documentation').cyan);
+  console.log(
+    hyperlinker(
+      "\nTo know more: https://github.com/kvssankar/git-ultimate-cloner#documentation",
+      " https://github.com/kvssankar/git-ultimate-cloner#documentation"
+    ).cyan
+  );
 };
 
 const syntaxError = () => {
@@ -53,7 +58,7 @@ const syntaxError = () => {
   console.log("Syntax : quick clone <url> [--ide {editor name}]\n".yellow);
   console.log("Supported editors : Visual Studio Code, Atom".yellow);
   console.log(
-    "For Visual Studio Code, use vscode or leave empty. For Atom, use atom\n"
+    "For Visual Studio Code, use vscode or leave empty. For Atom, use atom\n "
       .yellow
   );
 };
@@ -66,16 +71,19 @@ if (process.argv[2] == "--help") {
 if (process.argv[2] == "--set-folder") {
   if (shell.exec(`cd ${process.argv[4]}`).code !== 0) {
     shell.echo(`Error: Entered path isn't valid`.red);
-    shell.echo('\nPlease enter a valid path');
+    shell.echo("\nPlease enter a valid path");
   } else {
-    if (process.argv[3] === 'current' || process.argv[3] === 'Current') {
+    if (process.argv[3] === "current" || process.argv[3] === "Current") {
       shell.echo(`\nCannot save a path with key name "${process.argv[3]}"`.red);
-      shell.echo(`${process.argv[3]} is a reserved keyword (param) to clone into the current(one in which terminal is open) directory.\n`);
+      shell.echo(
+        `${process.argv[3]} is a reserved keyword (param) to clone into the current(one in which terminal is open) directory.\n`
+      );
     } else {
       var folderName = "guc-" + process.argv[3];
       store.set(folderName, process.argv[4]);
       shell.echo(
-        `Successfully set ${process.argv[3]} path as `.green + process.argv[4].blue
+        `Successfully set ${process.argv[3]} path as `.green +
+          process.argv[4].blue
       );
     }
   }
@@ -104,7 +112,7 @@ const optionsExc = () => {
           console.log(`Cloning into ${store.get(path)}\n`.green);
         } else {
           shell.echo(`Error: Entered path isn't valid`.red);
-          shell.echo('\nPlease enter a valid folder-keyname');
+          shell.echo("\nPlease enter a valid folder-keyname");
           shell.exit(1);
         }
       }
