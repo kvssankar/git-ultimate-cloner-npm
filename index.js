@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const shell = require("shelljs");
 const colors = require("colors");
+const hyperlinker = require('hyperlinker');
 var Spinner = require("cli-spinner").Spinner;
 var depSpin = new Spinner("%s");
 depSpin.setSpinnerString("|/-\\");
@@ -44,6 +45,7 @@ const help = () => {
   shell.echo("--ide ".yellow + "vscode : for opening in vscode editor");
   defaultFolderHelp();
   customFolderHelp();
+  console.log(hyperlinker('\nTo know more: https://github.com/kvssankar/git-ultimate-cloner#documentation', ' https://github.com/kvssankar/git-ultimate-cloner#documentation').cyan);
 };
 
 const syntaxError = () => {
