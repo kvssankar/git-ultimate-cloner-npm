@@ -43,6 +43,7 @@ const help = () => {
   shell.echo("where options is one of the below\n");
   shell.echo("--ide ".yellow + "atom   : for opening in atom editor");
   shell.echo("--ide ".yellow + "vscode : for opening in vscode editor");
+  shell.echo("--ide ".yellow + "subl : for opening in sublime text editor");
   defaultFolderHelp();
   customFolderHelp();
   console.log(
@@ -98,6 +99,10 @@ let cloneInCustomPath = null;
 const optionsExc = () => {
   for (var i = 0; i < options.length; i++) {
     if (options[i] == "--ide" && options[i + 1] == "atom") {
+      idename = options[i + 1];
+      i++;
+    }
+    if (options[i] == "--ide" && options[i + 1] == "subl") {
       idename = options[i + 1];
       i++;
     }
@@ -375,9 +380,14 @@ const checkIde = (idename) => {
       shell.echo("\nError:VS Code not installed\n".red);
       shell.exit(1);
     }
-  } else {
+  } else if (idename == "atom") {
     if (!shell.which("atom")) {
       shell.echo("\nError:Atom not installed\n".red);
+      shell.exit(1);
+    }
+  } else if (idename == "sub") {
+    if (!shell.which("sub")) {
+      shell.echo("\nError:Sublime Text not installed\n".red);
       shell.exit(1);
     }
   }
