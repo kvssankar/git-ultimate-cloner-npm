@@ -46,7 +46,7 @@ For contributing please read [this](https://github.com/kvssankar/git-ultimate-cl
 
 4. To clone into custom folder:
 
-		quick clone <repo-link> --folder node
+		quick clone <repo-link> --folder myfolder
 
 5. To open in your atom ide (by default opens in vscode):
 
