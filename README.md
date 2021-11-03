@@ -48,30 +48,38 @@ Automatically searches and installs...
 6. Rust Crates
 7. Go Packages
     
-Note:
-   > For Visual Studio Code, use c. For Atom, use -e atom
-   
-   > Opens in Visual Studio Code by default or -e vscode
-
 ## Examples
-1. For Visual Studio Code (defualt) :
-   ```sh
-   quick clone https://github.com/Tanmay000009/git-ultimate-cloner
-   ```
-2. For Atom :
-   ```sh
-   quick clone https://github.com/Tanmay000009/git-ultimate-cloner -e atom
-   ```
-Note:   
 
-   > For more info run
-   quick --help
+> For usage details: quick --help
+
+1. To set default path to clone into:
+
+		quick --set-folder default "C:\Users\SANKAR KUMAR\Desktop\projects"
+
+2. If u set a default folder but want to clone into current folder then:
+
+		quick clone <repo-link> --folder current
+
+3. Set more custom folders to clone ur projects into respective folders:
+
+		quick --set-folder node "C:\Users\SANKAR KUMAR\Desktop\projects\node"
+
+4. To clone into custom folder:
+
+		quick clone <repo-link> --folder node
+
+5. To open in your atom ide (by default opens in vscode):
+
+		quick clone <repo-link> --ide atom
+
+> For more feature suggestions visit:
+
+[GitHub Repo](https://github.com/kvssankar/git-ultimate-cloner.git)
 
 ## Prerequsites
 
 1.  [NodeJS](https://nodejs.org/en/) installed.
-2.  [Atom](https://atom.io/) or [Visual Studio Code](https://code.visualstudio.com/download) installed.
-3.  [git](https://git-scm.com/) installed globally.
+2.  [git](https://git-scm.com/) installed globally.
 
 ## Contributors
 
