@@ -4,8 +4,9 @@
 For contributing please read [this](https://github.com/kvssankar/git-ultimate-cloner/blob/master/CONTRIBUTING.md)
 
 ## Use this 😎😎😎
+	npm i -g git-ultimate-cloner
 
-    quick clone <repository-url>
+	quick clone <repository-url>
         
 ## Or this 🥵🥵🥵
     cd desktop
@@ -27,28 +28,7 @@ For contributing please read [this](https://github.com/kvssankar/git-ultimate-cl
    
    Example: Your projects folder
 
-
-**Currently supported ides : [Atom](https://atom.io/) , [Visual Studio Code](https://code.visualstudio.com/download)**
-
-## How to install?
-
-    npm i -g git-ultimate-cloner
-    #For help
-    quick --help
-    
-    
-# Currently supported various package managers:
-Automatically searches and installs...
-
-1. NPM Packages
-2. PHP Modules
-3. Yarn and pnpm
-4. Dart Packages
-5. Ruby Gems
-6. Rust Crates
-7. Go Packages
-    
-## Examples
+## Documentation
 
 > For usage details: quick --help
 
@@ -62,7 +42,7 @@ Automatically searches and installs...
 
 3. Set more custom folders to clone ur projects into respective folders:
 
-		quick --set-folder node "C:\Users\SANKAR KUMAR\Desktop\projects\node"
+		quick --set-folder foldername "C:\Users\SANKAR KUMAR\Desktop\projects\foldername"
 
 4. To clone into custom folder:
 
@@ -71,6 +51,20 @@ Automatically searches and installs...
 5. To open in your atom ide (by default opens in vscode):
 
 		quick clone <repo-link> --ide atom
+    
+    
+# Currently supported various package managers:
+Automatically searches and installs...
+
+1. NPM Packages
+2. PHP Modules
+3. Yarn and pnpm
+4. Dart Packages
+5. Ruby Gems
+6. Rust Crates
+7. Go Packages
+    
+
 
 > For more feature suggestions visit:
 
