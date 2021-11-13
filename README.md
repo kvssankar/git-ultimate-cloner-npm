@@ -35,23 +35,29 @@ For contributing please read [this](https://github.com/kvssankar/git-ultimate-cl
 
 > For usage details: quick --help
 
-1.  To set default path to clone into:
+1.  To simply clone:
+	
+	```
+	quick clone <repo-link>
+	```
+
+2.  To set default path to clone into:
 
         quick --set-folder default "C:\Users\SANKAR KUMAR\Desktop\projects"
 
-2.  If u set a default folder but want to clone into current folder then:
+3.  If u set a default folder but want to clone into current folder then:
 
         quick clone <repo-link> --folder current
 
-3.  Set more custom folders to clone ur projects into respective folders:
+4.  Set more custom folders to clone ur projects into respective folders:
 
         quick --set-folder myfolder "C:\Users\SANKAR KUMAR\Desktop\projects\myfolder"
 
-4.  To clone into custom folder:
+5.  To clone into custom folder:
 
         quick clone <repo-link> --folder myfolder
 
-5.  To open in your atom ide (by default opens in vscode):
+6.  To open in your atom ide (by default opens in vscode):
 
         quick clone <repo-link> --ide atom
 
