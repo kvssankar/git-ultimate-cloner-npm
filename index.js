@@ -13,27 +13,27 @@ const store = require("data-store")("guc");
 const defaultFolderHelp = () => {
   shell.echo(
     "--set-folder default".yellow +
-      ' "<path>"'.cyan +
-      " : for setting default folder to clone into"
+    ' "<path>"'.cyan +
+    " : for setting default folder to clone into"
   );
   shell.echo(
     "--folder ".yellow +
-      "current".cyan +
-      " : to clone into current cmd directory"
+    "current".cyan +
+    " : to clone into current cmd directory"
   );
 };
 
 const customFolderHelp = () => {
   shell.echo(
     "--set-folder ".yellow +
-      "<folderName>".cyan +
-      ' "<path>"'.cyan +
-      " : for setting custom folders to clone into"
+    "<folderName>".cyan +
+    ' "<path>"'.cyan +
+    " : for setting custom folders to clone into"
   );
   shell.echo(
     "--folder ".yellow +
-      "<folderName>".cyan +
-      " : for cloning into custom folders set"
+    "<folderName>".cyan +
+    " : for cloning into custom folders set"
   );
 };
 
@@ -84,7 +84,7 @@ if (process.argv[2] == "--set-folder") {
       store.set(folderName, process.argv[4]);
       shell.echo(
         `Successfully set ${process.argv[3]} path as `.green +
-          process.argv[4].blue
+        process.argv[4].blue
       );
     }
   }
@@ -96,6 +96,7 @@ let url = process.argv[3];
 let options = process.argv.slice(4);
 let cloneInCurrentPath = 0;
 let cloneInCustomPath = null;
+let appname = null;
 const optionsExc = () => {
   for (var i = 0; i < options.length; i++) {
     if (options[i] == "--ide" && options[i + 1] == "atom") {
@@ -130,13 +131,18 @@ if (process.argv[2] != "clone") {
   syntaxError();
   shell.exit(1);
 }
-let url_length = url.length;
-if (url.slice(url_length - 4, url_length) == ".git") {
-  url = url.slice(0, url_length - 4);
-}
+if (url.includes(".git"))
+  url = url.replace(".git", "");
 
 //get appname
-appname = url.replace("https://github.com/", "");
+if (url.includes("https://github.com/")) {
+  appname = url.replace("https://github.com/", "");
+} else if (url.includes("https://gitlab.com/")) {
+  appname = url.replace("https://gitlab.com/", "");
+} else {
+  shell.echo("\nError: Enter a valid github/gitlab url\n".red);
+  shell.exit(1);
+}
 let t1;
 for (let i = 0; i < appname.length; i++) {
   if (appname[i] == "/") {
@@ -168,10 +174,6 @@ const run = async () => {
 
 const check = () => {
   return new Promise((resolve) => {
-    if (!url.includes("https://github.com/")) {
-      shell.echo("\nError: Enter a valid github url\n".red);
-      shell.exit(1);
-    }
     if (!shell.which("git")) {
       shell.echo(
         "\nSorry, this script requires git installed globally :(\n".red
