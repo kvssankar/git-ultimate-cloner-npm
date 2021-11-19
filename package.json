@@ -1,17 +1,21 @@
 {
   "name": "git-ultimate-cloner",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "Are you tried of cloning repo, opening in vs-code and installing packages... No more use git-ultimate-cloner and make your life simple",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "git",
-    "code",
+    "github",
     "git clone",
+    "cli",
+    "gitlab",
     "npm install",
-    "cloner"
+    "git-ultimate-cloner",
+    "quick clone",
+    "args",
+    "argv"
   ],
   "repository": {
     "type": "git",
