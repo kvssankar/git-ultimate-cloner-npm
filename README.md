@@ -71,7 +71,7 @@ For contributing please read [this](https://github.com/kvssankar/git-ultimate-cl
 
 7. To set default ide:
 
-		guc set-ide default atom
+		guc set-ide atom
 
 # Currently supported various package managers:
 
