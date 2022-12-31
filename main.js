@@ -2,7 +2,7 @@ const shell = require("shelljs");
 const colors = require("colors");
 const store = require("data-store")("guc");
 
-const { getAppname, check, install_npm_packages } = require("./utils/utils");
+const {getAppname, check, install_npm_packages} = require("./utils/utils");
 const npm_packages = require("./languages/npm");
 const go_deps = require("./languages/go");
 const pip_packages = require("./languages/pip");
@@ -60,9 +60,8 @@ const run = async (url, options) => {
       shell.exec(`subl .`);
     } else {
       shell.echo(
-        "Please enter a valid editor.\n Right now we support only [vscode,atom,sublime]"
-          .red
-      );
+          "Please enter a valid editor.\n Right now we support only [vscode,atom,sublime]"
+              .red);
       shell.exit(1);
     }
   } else {
