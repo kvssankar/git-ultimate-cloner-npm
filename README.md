@@ -2,13 +2,11 @@
 
 For contributing please read [this](https://github.com/kvssankar/git-ultimate-cloner/blob/master/CONTRIBUTING.md)
 
-
 ## Use this 😎😎😎
 
     npm i -g git-ultimate-cloner
 
     guc clone <repository-url>
-
 
 ## Or this 🥵🥵🥵
 
@@ -19,13 +17,13 @@ For contributing please read [this](https://github.com/kvssankar/git-ultimate-cl
     code .
     open terminal in vs code
     npm install
-	cd client
-	npm install
-	cd ..
-	cd server
-	npm install
-	cd ..
-	npm run dev
+    cd client
+    npm install
+    cd ..
+    cd server
+    npm install
+    cd ..
+    npm run dev
 
 # What does it do?
 
@@ -44,10 +42,10 @@ For contributing please read [this](https://github.com/kvssankar/git-ultimate-cl
 > For usage details: guc --help
 
 1.  To simply clone:
-	
-	```
-	guc clone <repo-link>
-	```
+
+    ```
+    guc clone <repo-link>
+    ```
 
 2.  To set default path to clone into:
 
@@ -69,9 +67,9 @@ For contributing please read [this](https://github.com/kvssankar/git-ultimate-cl
 
         guc clone <repo-link> --ide atom
 
-7. To set default ide:
+7.  To set default ide:
 
-		guc set-ide default atom
+        guc set-ide default atom
 
 # Currently supported various package managers:
 
