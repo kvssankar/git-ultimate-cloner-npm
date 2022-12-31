@@ -17,6 +17,10 @@ async function main() {
       "Set a custom folder to clone into.To set default folder, use 'default' as folderName. Use quotes in path if it contains spaces."
     )
     .action((folderName, path) => {
+      if (!shell.test("-d", path)) {
+        console.log("Invalid path");
+        return;
+      }
       if (folderName === "ide") {
         console.log("Cannot name folder 'ide'.");
         return;
@@ -33,15 +37,19 @@ async function main() {
     .command("delete-folder <folderName>")
     .description("Delete a custom folder.")
     .action((folderName) => {
-      store.del(folderName);
-      console.log("Deleted folder", folderName);
+      if (store.has(folderName)) {
+        store.del(folderName);
+        console.log("Deleted folder", folderName);
+      } else {
+        console.log("Folder not found");
+      }
     });
 
   program
     .command("list-folders")
     .description("List all custom folders.")
     .action(() => {
-      console.log("List folders", store.data);
+      console.log(store.data);
     });
 
   program
@@ -56,6 +64,10 @@ async function main() {
     .command("update-folder <folderName> <path>")
     .description("Update a custom folder.")
     .action((folderName, path) => {
+      if (!shell.test("-d", path)) {
+        console.log("Invalid path");
+        return;
+      }
       if (folderName === "ide") {
         console.log("Cannot name folder 'ide'.");
         return;
@@ -64,8 +76,12 @@ async function main() {
         console.log("Cannot name folder 'current'.");
         return;
       }
-      store.set(folderName, path);
-      console.log("Updated folder", folderName, path);
+      if (store.has(folderName)) {
+        store.set(folderName, path);
+        console.log("Updated folder", folderName, path);
+      } else {
+        console.log("Folder not found");
+      }
     });
 
   program

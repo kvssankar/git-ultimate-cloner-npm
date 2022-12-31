@@ -3,14 +3,6 @@ const colors = require("colors");
 const store = require("data-store")("guc");
 
 const { getAppname, check, install_npm_packages } = require("./utils/utils");
-const npm_packages = require("./languages/npm");
-const go_deps = require("./languages/go");
-const pip_packages = require("./languages/pip");
-const rust_crates = require("./languages/rust");
-const php_modules = require("./languages/php");
-const ruby_gems = require("./languages/ruby");
-const maven_deps = require("./languages/maven");
-const dart_packages = require("./languages/dart");
 
 const run = async (url, options) => {
   check();

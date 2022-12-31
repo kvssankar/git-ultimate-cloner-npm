@@ -97,6 +97,8 @@ Automatically searches and installs...
 
 ## Contributors
 
+## Contributors
+
 <table>
 	<tr align="center">
 		<td>
@@ -109,6 +111,34 @@ Automatically searches and installs...
 					<img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36" alt="GitHub"/>
 				</a>
 				<a href = "https://www.linkedin.com/in/sankarkvs/">
+					<img src = "http://www.iconninja.com/files/863/607/751/network-linkedin-social-connection-circular-circle-media-icon.svg" width="36" height="36" alt="LinkedIn"/>
+				</a>
+			</p>
+		</td>
+        <td>
+		Tanmay Vyas
+		<p align="center">
+			<img src = "https://user-images.githubusercontent.com/70322519/135129327-554cead3-1245-4024-95e8-7d704341ab63.png" width="150" height="150" alt="Tanmay Vyas">
+		</p>
+			<p align="center">
+				<a href = "https://github.com/Tanmay000009">
+					<img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36" alt="GitHub"/>
+				</a>
+				<a href = "https://www.linkedin.com/in/tanmay-vyas-09/">
+					<img src = "http://www.iconninja.com/files/863/607/751/network-linkedin-social-connection-circular-circle-media-icon.svg" width="36" height="36" alt="LinkedIn"/>
+				</a>
+			</p>
+		</td>
+        <td>
+		Dev Sharma
+		<p align="center">
+			<img src = "https://avatars.githubusercontent.com/u/50591491?v=4" width="150" height="150" alt="Dev Sharma">
+		</p>
+			<p align="center">
+				<a href = "https://github.com/cryptus-neoxys">
+					<img src = "http://www.iconninja.com/files/241/825/211/round-collaboration-social-github-code-circle-network-icon.svg" width="36" height = "36" alt="GitHub"/>
+				</a>
+				<a href = "https://www.linkedin.com/in/cryptus-neoxys/">
 					<img src = "http://www.iconninja.com/files/863/607/751/network-linkedin-social-connection-circular-circle-media-icon.svg" width="36" height="36" alt="LinkedIn"/>
 				</a>
 			</p>
