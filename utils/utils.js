@@ -26,7 +26,8 @@ const check = () => {
   return new Promise((resolve) => {
     if (!shell.which("git")) {
       shell.echo(
-          "\nSorry, this script requires git installed globally :(\n".red);
+        "\nSorry, this script requires git installed globally :(\n".red
+      );
     }
     resolve();
   });
@@ -51,5 +52,5 @@ async function install_npm_packages(folder) {
 module.exports = {
   getAppname,
   check,
-  install_npm_packages
+  install_npm_packages,
 };
